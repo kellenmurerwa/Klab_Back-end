@@ -1,0 +1,35 @@
+{
+  "dependencies": {
+    "cloudinary": "^2.5.1",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "mongoose": "^8.10.1",
+    "multer": "^1.4.5-lts.1",
+    "multer-storage-cloudinary": "^4.0.0",
+    "nodemon": "^3.1.9"
+  },
+  "name": "klab_back-end",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon --exec ./node_modules/.bin/babel-node index.js",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kellenmurerwa/Klab_Back-end.git"
+  },
+  "keywords": [],
+  "author": "Rutembesa Kellen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kellenmurerwa/Klab_Back-end/issues"
+  },
+  "homepage": "https://github.com/kellenmurerwa/Klab_Back-end#readme",
+  "description": "",
+  "devDependencies": {
+    "@babel/core": "^7.26.9",
+    "@babel/node": "^7.26.0",
+    "@babel/preset-env": "^7.26.9"
+  }
+}
