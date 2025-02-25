@@ -12,10 +12,9 @@ const db_pass =process.env.DB_PASS;
 
 
 const app=express();
-// app.use(express.json())
+app.use(express.json())
 app.use('/', mainRouter);
 app.use(bodyParser.json());
-
 
 const dbUri = `mongodb+srv://${db_user}:${db_pass}@cluster0.laopr.mongodb.net/${db_name}?retryWrites=true&w=majority`;
 mongoose.set("strictQuery", false);

@@ -1,4 +1,4 @@
-import Product from "../Models/ProductModel.js";
+import Product from "../models/ProductModel.js";
 import cloudinary  from "../config/cloudinary.js";
 
 
@@ -77,7 +77,7 @@ export const deleteProductById = async (req, res) => {
         const product = await Product.findById(id);
         if (!product) return res.status(404).json({ success: false, message: "Product not found" });
 
-        await cloudinary.uploader.destroy(product.productImage); // Delete image from Cloudinary
+        await cloudinary.uploader.destroy(product.productImage); 
         await product.deleteOne();
 
         res.status(200).json({ success: true, message: "Product deleted successfully" });

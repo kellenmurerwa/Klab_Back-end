@@ -1,4 +1,4 @@
-import { createProduct, getAllProducts, getProductById,deleteProductById, updateProductById} from "../Controllers/productController.js";
+import { createProduct, getAllProducts, getProductById,deleteProductById, updateProductById} from "../controllers/productController.js";
 import upload from "../middlewares/Multer.js";
 import express from 'express';
 const productRouter = express.Router();
