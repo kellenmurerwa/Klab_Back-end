@@ -1,5 +1,5 @@
 import { createProduct, getAllProducts, getProductById,deleteProductById, updateProductById} from "../Controllers/productController.js";
-import { upload } from "../config/cloudinary.js";
+import upload from "../middlewares/Multer.js";
 import express from 'express';
 const productRouter = express.Router();
 

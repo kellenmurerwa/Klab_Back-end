@@ -1,9 +1,11 @@
 import Product from "../Models/ProductModel.js";
-import { cloudinary } from "../config/cloudinary.js";
+import cloudinary  from "../config/cloudinary.js";
 
 
 export const createProduct = async (req, res) => {
+    console.log('cloudinary object:', cloudinary);
     try {
+        const result = await cloudinary.uploader.upload(req.file.path);
         const { productName, productPrice, productCategory, productDiscount } = req.body;
         if (!req.file) return res.status(400).json({ success: false, message: "Product image is required" });
 
@@ -12,7 +14,8 @@ export const createProduct = async (req, res) => {
             productPrice,
             productCategory,
             productDiscount,
-            productImage: req.file.path, 
+            productImage: result.secure_url,
+             
         });
 
         await newProduct.save();
@@ -54,8 +57,8 @@ export const updateProductById = async (req, res) => {
 
         if (req.file) {
             const product = await Product.findById(id);
-            if (product) await cloudinary.uploader.destroy(product.productImage); // Delete old image
-            updatedProduct.productImage = req.file.path; // Set new image
+            if (product) await cloudinary.uploader.destroy(product.productImage); 
+            updatedProduct.productImage = req.file.path; 
         }
 
         const product = await Product.findByIdAndUpdate(id, updatedProduct, { new: true });
@@ -67,7 +70,7 @@ export const updateProductById = async (req, res) => {
     }
 };
 
-// Delete Product by ID
+
 export const deleteProductById = async (req, res) => {
     try {
         const { id } = req.params;
